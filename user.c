@@ -6,11 +6,6 @@ __attribute__((noreturn)) void exit(void) {
     for(;;);
 }
 
-void putchar(char ch) {
-    syscall(SYS_PUTCHAR, ch, 0, 0);
-}
-
-
 __attribute__((section(".text.start")))
 __attribute__((naked))
 void start(void) {
@@ -31,5 +26,13 @@ int syscall(int sysno, int arg0, int arg1, int arg2) {
                          : "r"(a0), "r"(a1), "r"(a2), "r"(a3)
                          : "memory");
     return a0;
+}
+
+void putchar(char ch) {
+    syscall(SYS_PUTCHAR, ch, 0, 0);
+}
+
+int getchar(void) {
+    return syscall(SYS_GETCHAR, 0, 0, 0);
 }
 
