@@ -2,9 +2,6 @@
 
 extern char __stack_top[];
 
-__attribute__((noreturn)) void exit(void) {
-    for(;;);
-}
 
 __attribute__((section(".text.start")))
 __attribute__((naked))
@@ -26,6 +23,11 @@ int syscall(int sysno, int arg0, int arg1, int arg2) {
                          : "r"(a0), "r"(a1), "r"(a2), "r"(a3)
                          : "memory");
     return a0;
+}
+
+__attribute__((noreturn)) void exit(void) {
+    syscall(SYS_EXIT, 0, 0, 0);
+    for(;;);
 }
 
 void putchar(char ch) {
