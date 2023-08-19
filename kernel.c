@@ -358,23 +358,6 @@ void kernel_main(void) {
 
     yield();
     PANIC("switched to idle process");
-
-    //printf("\n\nHello %s\n", "World!");
-
-    //addr_t paddr0 = alloc_pages(2);
-    //paddr_t paddr1 = alloc_pages(1);
-    //printf("alloc_pages test: paddr0=%x\n", paddr0);
-    //printf("alloc_pages test: paddr1=%x\n", paddr1);
-
-    //PANIC("booted!");
-    //__asm__ __volatile__("unimp"); // 無効な命令
-
-    //printf("unreachable here!");
-    //printf("1 + 2 = %d, %x\n", 1 + 2, 0x1234abcd);
-
-    //for (;;) {
-    //    __asm__ __volatile__("wfi");
-    //}
 }
 
 __attribute__((section(".text.boot")))
