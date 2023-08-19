@@ -5,11 +5,15 @@
 #define PROC_RUNNABLE 1
 
 #define SATP_SV32 (1u << 31)
+#define SSTATUS_SPIE (1 << 5)
+#define SSTATUS_SUM  (1 << 18)
 #define PAGE_V    (1 << 0)
 #define PAGE_R    (1 << 1)
 #define PAGE_W    (1 << 2)
 #define PAGE_X    (1 << 3)
 #define PAGE_U    (1 << 4)
+
+#define USER_BASE 0x1000000
 
 struct sbiret {
     long error;
