@@ -15,6 +15,8 @@
 
 #define USER_BASE 0x1000000
 
+#define SCAUSE_ECALL 8
+
 struct sbiret {
     long error;
     long value;
